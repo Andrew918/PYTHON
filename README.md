@@ -20,4 +20,5 @@ T2 = pd.read_excel('C:\\Users\\Andern Hu\\Desktop\\Pandas\\Practice2.xlsx', 'She
 Orders = pd.merge(left = T1, right = T2, left_on = ['Customer','Date'], right_on = ['Customer','Date2'], how = 'right')
 
 Orders[['Customer', 'Date2','Q','Test']]
+
 ------------------------
