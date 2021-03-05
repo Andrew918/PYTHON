@@ -9,6 +9,8 @@ for item in os.listdir(source_dir):
         merger.append(item)
 merger.write("./Total.pdf")
 merger.close()
+
+------------------------
 import pandas as pd
 
 T1 = pd.read_excel('C:\\Users\\Andern Hu\\Desktop\\Pandas\\Practice.xlsx', 'Sheet1')
