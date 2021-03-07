@@ -58,3 +58,9 @@ R_Dates = df[df['EVENT_DT_CAT'] > '2021/02/27'].index
 df.drop(R_Dates, inplace = True)
 
 #df.to_csv('C:\\Users\\yhu\\OneDrive - OneWorkplace\\Documents\\\\BB Triggers Weekly\\BBWEEKLY_20210301.csv', index = False)
+
+----------------------------------------------------------------------------------------------------------------------------
+
+total = df.groupby([date]).['ipbbsales','dtvsales','atttvsales'].sum().reset_index()
+
+
