@@ -63,4 +63,5 @@ df.drop(R_Dates, inplace = True)
 
 total = df.groupby([date]).['ipbbsales','dtvsales','atttvsales'].sum().reset_index()
 
+df.head(5)
 
