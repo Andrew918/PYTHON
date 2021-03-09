@@ -33,6 +33,44 @@ JAN = pd.read_excel(file, 'EAD RESP TOUCH DET - JAN', skiprows = 1)
 
 #df = pd.concat([JAN,FEB,MAR,APR,MAY,JUN,JUL,AUG,SEP,OCT,NOV,DEC])
 
+-----------------------------------------------------------------------------------------------------------------------
+# Rename a single file 1
+import os
+
+old_file_name = 'C:\\Users\\yhu\\OneDrive - OneWorkplace\\Documents\\Weekly Reports\\Test\\bbb1111.xlsx'
+new_file_name = 'C:\\Users\\yhu\\OneDrive - OneWorkplace\\Documents\\Weekly Reports\\Test\\bbb1111.xlsx'
+
+os.rename(old_file_name, new_file_name)
+
+print("File renamed!")
+
+# Rename a single file 2 
+import os
+os.chdir(r'C:\Users\yhu\OneDrive - OneWorkplace\Documents\Weekly Reports\Test')
+for file in os.listdir():
+    src=file
+    if src=='Seventh Dog.xlsx':
+           dst="NotOld1.xlsx"
+           os.rename(src,dst)
+
+# Rename all files under a directory
+import os
+path = r'C:\Users\yhu\OneDrive - OneWorkplace\Documents\Weekly Reports\Test'
+files = os.listdir(path)
+for file in files:
+    os.rename(os.path.join(path, file), os.path.join(path, 'Old_' + file))
+
+    #os.rename(os.path.join(path, file), os.path.join(path, 'xs' + file + '.csv'))
+
+# Rename all files using loop
+import os
+os.chdir(r'C:\Users\yhu\OneDrive - OneWorkplace\Documents\Weekly Reports\Test')
+i=1
+for file in os.listdir():
+    src=file
+    dst="Old"+str(i)+".xlsx"
+    os.rename(src,dst)
+    i+=1
 df = pd.concat([JAN,FEB,MAR])
 
 df['EVENT_DT_CAT'] = df['EVENT_DT_CAT'].str.replace('_','/')
