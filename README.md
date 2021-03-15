@@ -1,3 +1,5 @@
+----------------------------------------------------------------------------------------------------------------------------
+
 import os
 from PyPDF2 import PdfFileMerger
 
@@ -36,56 +38,13 @@ JAN = pd.read_excel(file, 'EAD RESP TOUCH DET - JAN', skiprows = 1)
 -----------------------------------------------------------------------------------------------------------------------
 
 
-Use this one when renaming files
--------------------------------------------------------------------------------------------------------------------------
-import os, fnmatch
 
-file_path = 'C:\\Users\\yhu\\OneDrive - OneWorkplace\\Documents\\Weekly Reports\\Test\\'
 
-files_to_rename = fnmatch.filter(os.listdir(file_path), '*.xlsx')
 
-for file_name in files_to_rename:    
-    os.rename(file_path + file_name, 
-          file_path + file_name.replace('-', 'new'))
-          
-----------------------------------------------------------------------------------------------------------------------
-# Rename a single file 1
-import os
 
-old_file_name = 'C:\\Users\\yhu\\OneDrive - OneWorkplace\\Documents\\Weekly Reports\\Test\\bbb1111.xlsx'
-new_file_name = 'C:\\Users\\yhu\\OneDrive - OneWorkplace\\Documents\\Weekly Reports\\Test\\bbb1111.xlsx'
+--------------------------------------------------------------------------------------------------------------------------
 
-os.rename(old_file_name, new_file_name)
 
-print("File renamed!")
-
-# Rename a single file 2 
-import os
-os.chdir(r'C:\Users\yhu\OneDrive - OneWorkplace\Documents\Weekly Reports\Test')
-for file in os.listdir():
-    src=file
-    if src=='Seventh Dog.xlsx':
-           dst="NotOld1.xlsx"
-           os.rename(src,dst)
-
-# Rename all files under a directory
-import os
-path = r'C:\Users\yhu\OneDrive - OneWorkplace\Documents\Weekly Reports\Test'
-files = os.listdir(path)
-for file in files:
-    os.rename(os.path.join(path, file), os.path.join(path, 'Old_' + file))
-
-    #os.rename(os.path.join(path, file), os.path.join(path, 'xs' + file + '.csv'))
-
-# Rename all files using loop
-import os
-os.chdir(r'C:\Users\yhu\OneDrive - OneWorkplace\Documents\Weekly Reports\Test')
-i=1
-for file in os.listdir():
-    src=file
-    dst="Old"+str(i)+".xlsx"
-    os.rename(src,dst)
-    i+=1
 df = pd.concat([JAN,FEB,MAR])
 
 df['EVENT_DT_CAT'] = df['EVENT_DT_CAT'].str.replace('_','/')
@@ -117,4 +76,39 @@ df.drop(R_Dates, inplace = True)
 total = df.groupby([date]).['ipbbsales','dtvsales','atttvsales'].sum().reset_index()
 
 df.head(5)
+
+------------------------------------------------------------------------------------------------------------------------------
+#Renaming File Names
+
+import os
+file_path = 'C:\\Users\\yhu\\OneDrive - OneWorkplace\\Documents\\Weekly Reports\\Test\\'
+os.rename(file_path + 'ahd3ah.xlsx', 
+          file_path + 'python-res.xlsx')
+
+---------------------
+import os, fnmatch
+
+file_path = 'C:\\Users\\yhu\\OneDrive - OneWorkplace\\Documents\\Weekly Reports\\Test\\'
+
+files_to_rename = fnmatch.filter(os.listdir(file_path), '*.txt')
+
+new_name = 'Datafile'
+
+for i, file_name in enumerate(files_to_rename):
+    new_file_name = new_name + str(i) + '.xlsx'
+    
+    os.rename(file_path + file_name, 
+          file_path + new_file_name)
+
+-------------------------------
+import os, fnmatch
+
+file_path = 'C:\\Users\\yhu\\OneDrive - OneWorkplace\\Documents\\Weekly Reports\\Test\\'
+
+files_to_rename = fnmatch.filter(os.listdir(file_path), '*.xlsx')
+
+for file_name in files_to_rename:    
+    os.rename(file_path + file_name, 
+          file_path + file_name.replace('-', 'ah'))
+
 
