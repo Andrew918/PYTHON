@@ -34,6 +34,21 @@ JAN = pd.read_excel(file, 'EAD RESP TOUCH DET - JAN', skiprows = 1)
 #df = pd.concat([JAN,FEB,MAR,APR,MAY,JUN,JUL,AUG,SEP,OCT,NOV,DEC])
 
 -----------------------------------------------------------------------------------------------------------------------
+
+
+
+-------------------------------------------------------------------------------------------------------------------------
+import os, fnmatch
+
+file_path = 'C:\\Users\\yhu\\OneDrive - OneWorkplace\\Documents\\Weekly Reports\\Test\\'
+
+files_to_rename = fnmatch.filter(os.listdir(file_path), '*.xlsx')
+
+for file_name in files_to_rename:    
+    os.rename(file_path + file_name, 
+          file_path + file_name.replace('-', 'new'))
+          
+----------------------------------------------------------------------------------------------------------------------
 # Rename a single file 1
 import os
 
