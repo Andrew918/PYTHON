@@ -78,6 +78,7 @@ total = df.groupby([date]).['ipbbsales','dtvsales','atttvsales'].sum().reset_ind
 df.head(5)
 
 ------------------------------------------------------------------------------------------------------------------------------
+
 #Renaming File Names
 
 import os
