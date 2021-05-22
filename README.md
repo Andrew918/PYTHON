@@ -112,4 +112,19 @@ for file_name in files_to_rename:
     os.rename(file_path + file_name, 
           file_path + file_name.replace('-', 'ah'))
 
+------------------------------
+import keyboard
+import time
+
+time.sleep(5)
+try:
+while True:
+ time.sleep(1)
+ keyboard.write('k')
+ time.sleep(1)
+ keyboard.press_and_release('backspace')
+ 
+excep KeyboardInterrupt:
+pass
+
 
