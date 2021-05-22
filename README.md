@@ -124,7 +124,7 @@ while True:
  time.sleep(1)
  keyboard.press_and_release('backspace')
  
-excep KeyboardInterrupt:
+except KeyboardInterrupt:
 pass
 
 
