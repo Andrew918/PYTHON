@@ -126,5 +126,14 @@ while True:
  
 except KeyboardInterrupt:
 pass
+------------------------------------
 
+#1. ROW NUMBER() --> .RANK(method='first')
+# Ranks orders over time by Custoner ID
+orders['Row Num'] = orders.groupby(['Customer ID'])['Order Date'].rank(method='first') 
+
+# Sorts values by Customer ID and Order Date in ascending order
+orders.sort_values(by= ['Customer ID','Order Date'], inplace = True)
+orders = orders.reset_index(drop = True)
+orders.head(20)
 
