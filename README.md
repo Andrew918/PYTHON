@@ -130,6 +130,7 @@ pass
 
 #1. ROW NUMBER() --> .RANK(method='first')
 # Ranks orders over time by Custoner ID
+------ if order date is object, convert to time. data["Date"]= pd.to_datetime(data["Date"]) ------
 orders['Row Num'] = orders.groupby(['Customer ID'])['Order Date'].rank(method='first') 
 
 # Sorts values by Customer ID and Order Date in ascending order
